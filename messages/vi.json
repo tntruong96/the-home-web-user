@@ -1,0 +1,68 @@
+{
+  "header": {
+    "logo": "The Home",
+    "nav": {
+      "aboutHome": "Về The Home",
+      "booking": "Đặt Bàn",
+      "menu": "Thực Đơn",
+      "hiring": "Tuyển Dụng",
+      "store": "Cửa Hàng"
+    },
+    "bookTable": "Đặt Bàn",
+    "cart": "Giỏ hàng",
+    "language": "Ngôn ngữ"
+  },
+  "footer": {
+    "followUs": "Follow Us!",
+    "social": "Theo dõi chúng tôi",
+    "facebook": "Facebook",
+    "instagram": "Instagram"
+  },
+  "menu": {
+    "categories": {
+      "food": "Món Ăn",
+      "drink": "Đồ Uống"
+    },
+    "sections": {
+      "vietnamesePizza": "PIZZA ĐẶC SẢN VIỆT",
+      "classicPizza": "PIZZA CLASSIC",
+      "pasta": "PASTA"
+    }
+  },
+  "locations": {
+    "phuQuoc": "Phú Quốc",
+    "nhaTrang": "Nha Trang",
+    "muiNe": "Mũi Né",
+    "addressPQ": "129 Trần Hưng Đạo, Dương Đông, Phú Quốc",
+    "addressNT": "12 14 Trần Phú, Nha Trang",
+    "phone": "Lorem Ipsum has been the"
+  },
+  "LocaleSwitcher": {
+    "vi": "Tiếng Việt",
+    "en": "Tiếng Anh"
+  },
+  "main": {
+    "map": "Bản Đồ",
+    "vietnameseSpecialties": "Đặc sản Việt",
+    "northern": "Miền Bắc",
+    "central": "Miền Trung",
+    "southern": "Miền Nam",
+    "follow": "Theo Dõi",
+    "subscribe": "Đăng Ký",
+    "storiesOfTheHome": "Câu Chuyện Của Nhà"
+  },
+  "booking": {
+    "fullName": "Họ và tên",
+    "phoneNumber": "Số điện thoại",
+    "numberOfPeople": "Số khách",
+    "date": "Ngày",
+    "time": "Thời gian",
+    "branch": "Chi nhánh"
+  },
+  "hero": {
+    "headline1": "Mời bạn khám phá Đặc Sản Việt",
+    "headline2": "trên Đế bánh Pizza Ý",
+    "bookTableButton": "Đặt bàn",
+    "loading": "Đang tải..."
+  }
+}

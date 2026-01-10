@@ -1,0 +1,68 @@
+{
+  "header": {
+    "logo": "The Home",
+    "nav": {
+      "aboutHome": "About The Home",
+      "booking": "Booking",
+      "hiring": "Hiring",
+      "menu": "Menu",
+      "store": "Store"
+    },
+    "bookTable": "Reservation",
+    "cart": "Cart",
+    "language": "Language"
+  },
+  "footer": {
+    "followUs": "Follow Us!",
+    "social": "Follow us",
+    "facebook": "Facebook",
+    "instagram": "Instagram"
+  },
+  "menu": {
+    "categories": {
+      "food": "Food",
+      "drink": "Drink"
+    },
+    "sections": {
+      "vietnamesePizza": "VIETNAMESE SPECIALTY PIZZA",
+      "classicPizza": "CLASSIC PIZZA",
+      "pasta": "PASTA"
+    }
+  },
+  "locations": {
+    "phuQuoc": "Phu Quoc",
+    "nhaTrang": "Nha Trang",
+    "muiNe": "Mũi Né",
+    "addressPQ": "129 Tran Hung Dao, Duong Dong Town, Phu Quoc Island",
+    "addressNT": "12 14 Tran Phu, Nha Trang",
+    "phone": "Lorem Ipsum has been the"
+  },
+  "LocaleSwitcher": {
+    "vi": "Vietnamese",
+    "en": "English"
+  },
+  "main": {
+    "map": "Map of",
+    "vietnameseSpecialties": "Vietnamese specialties",
+    "northern": "Northern",
+    "central": "Central",
+    "southern": "Southern",
+    "follow": "Follow",
+    "subscribe": "Subscribe",
+    "storiesOfTheHome": "Stories Of The Home"
+  },
+  "booking": {
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "numberOfPeople": "Number Of Guesses",
+    "date": "Date",
+    "time": "Time",
+    "branch": "Branch"
+  },
+  "hero": {
+    "headline1": "Come and discover Vietnamese specialties",
+    "headline2": "on an Italian pizza crust",
+    "bookTableButton": "Booking",
+    "loading": "Loading..."
+  }
+}
