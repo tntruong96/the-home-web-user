@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import Header from "@/components/common/header";
 import { DeviceProvider } from "@/hooks/useDeviceContext";
+import { Toaster } from "@/components/ui/sonner";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -63,6 +64,7 @@ export default async function LocaleLayout({
           </QueryProvider>
           <Footer />
         </NextIntlClientProvider>
+        <Toaster />
       </body>
     </html>
   );

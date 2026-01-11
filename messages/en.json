@@ -57,12 +57,25 @@
     "numberOfPeople": "Number Of Guesses",
     "date": "Date",
     "time": "Time",
-    "branch": "Branch"
+    "location": "Location",
+    "bookingOnline": "Booking Online",
+    "reset": "Reset",
+    "bookingTable": "Booking.",
+    "submitting": "Booking..."
   },
   "hero": {
     "headline1": "Come and discover Vietnamese specialties",
     "headline2": "on an Italian pizza crust",
     "bookTableButton": "Reservation",
     "loading": "Loading..."
+  },
+  "error": {
+    "fullnameError": "Full name must be at least 2 characters",
+    "phoneMin": "Phone must be at least 7 digits",
+    "phoneMax": "Phone too long",
+    "phoneInvalid": "Invalid phone number",
+    "dateError": "Please select a date",
+    "timeError": "Please select a time",
+    "locationError": "Please select a location"
   }
 }

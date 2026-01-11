@@ -45,36 +45,16 @@ const MenuComponent = () => {
       useMouseEvents={true}
     >
       <PageComponent>
-        <Image
-          src={"/location-1.avif"}
-          alt="abc"
-          fill
-          className="object-cover"
-        />
+        <Image src={"/menu-1.webp"} alt="abc" fill className="object-cover" />
       </PageComponent>
       <PageComponent>
-        <Image
-          src={"/location-2.avif"}
-          alt="abc"
-          fill
-          className="object-cover"
-        />
+        <Image src={"/menu-2.webp"} alt="abc" fill className="object-cover" />
       </PageComponent>
       <PageComponent>
-        <Image
-          src={"/location-1.avif"}
-          alt="abc"
-          fill
-          className="object-cover"
-        />
+        <Image src={"/menu-3.webp"} alt="abc" fill className="object-cover" />
       </PageComponent>
       <PageComponent>
-        <Image
-          src={"/location-2.avif"}
-          alt="abc"
-          fill
-          className="object-cover"
-        />
+        <Image src={"/menu-4.webp"} alt="abc" fill className="object-cover" />
       </PageComponent>
     </HTMLFlipBook>
   );

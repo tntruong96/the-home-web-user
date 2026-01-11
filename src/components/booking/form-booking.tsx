@@ -1,8 +1,5 @@
 "use client";
-import React from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -10,30 +7,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { Calendar } from "../ui/calendar";
-
-const bookingSchema = z.object({
-  fullName: z
-    .string()
-    .min(2, { message: "Full name must be at least 2 characters" }),
-  phone: z
-    .string()
-    .min(7, { message: "Phone must be at least 7 digits" })
-    .max(20, { message: "Phone too long" })
-    .regex(/^\+?\d[\d\s-]{6,}$/, { message: "Invalid phone number" }),
-  people: z
-    .number()
-    .int()
-    .min(1, { message: "Minimum is 1" })
-    .max(30, { message: "Maximum is 30" }),
-  date: z.string().min(1, { message: "Please select a date" }),
-  time: z.string().min(1, { message: "Please select a time" }),
-  branch: z.string().min(1, { message: "Please select a branch" }),
-});
-
-type BookingFormData = z.infer<typeof bookingSchema>;
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 
 const BRANCH_OPTIONS: { value: string; label: string }[] = [
   { value: "phuquoc", label: "Phú Quốc" },
@@ -78,10 +56,31 @@ const inputClassName =
 const errorClassName = "text-red-500 text-xs mt-1";
 
 const FormBooking = () => {
+  const t = useTranslations();
+  const bookingSchema = z.object({
+    fullName: z.string().min(2, { message: t("error.fullnameError") }),
+    phone: z
+      .string()
+      .min(7, { message: t("error.phoneMin") })
+      .max(20, { message: t("error.phoneMax") })
+      .regex(/^\+?\d[\d\s-]{6,}$/, { message: t("error.phoneInvalid") }),
+    people: z
+      .number()
+      .int()
+      .min(1, { message: "Minimum is 1" })
+      .max(30, { message: "Maximum is 30" }),
+    date: z.string().min(1, { message: t("error.dateError") }),
+    time: z.string().min(1, { message: t("error.timeError") }),
+    location: z.string().min(1, { message: t("error.locationError") }),
+  });
+
+  type BookingFormData = z.infer<typeof bookingSchema>;
+
   const {
     register,
     control,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
@@ -91,16 +90,15 @@ const FormBooking = () => {
       people: 2,
       date: "",
       time: "",
-      branch: "",
+      location: "",
     },
     mode: "onTouched",
   });
 
-  const t = useTranslations();
-
   const onSubmit: SubmitHandler<BookingFormData> = async (data) => {
     // Replace with API call
     // await createBooking(data)
+    toast.success("Your booking is successful");
     console.log("booking payload", data);
   };
 
@@ -135,7 +133,7 @@ const FormBooking = () => {
         )}
       </div>
 
-      <div className="flex gap-8 flex-col md:flex-row md:items-center md:justify-between ">
+      <div className="flex gap-8 flex-col md:flex-row md:items-top md:justify-between ">
         <div>
           <Controller
             control={control}
@@ -215,11 +213,11 @@ const FormBooking = () => {
       <div>
         <Controller
           control={control}
-          name="branch"
+          name="location"
           render={({ field: { onChange, value } }) => (
             <Select value={value ?? ""} onValueChange={onChange}>
               <SelectTrigger>
-                <SelectValue placeholder={t("booking.branch")} />
+                <SelectValue placeholder={t("booking.location")} />
               </SelectTrigger>
               <SelectContent>
                 {BRANCH_OPTIONS.map((b) => (
@@ -231,17 +229,26 @@ const FormBooking = () => {
             </Select>
           )}
         />
-        {errors.branch && (
-          <p className={errorClassName}>{errors.branch.message}</p>
+        {errors.location && (
+          <p className={errorClassName}>{errors.location.message}</p>
         )}
       </div>
 
-      <div className="sm:col-span-2 flex justify-center gap-2 pt-2">
-        <Button type="reset" variant="outline" className="w-full">
-          Reset
+      <div className="sm:col-span-2 flex justify-center gap-4 pt-2">
+        <Button
+          type="reset"
+          variant="outline"
+          className="w-full cursor-pointer"
+          onClick={() => reset()}
+        >
+          {t("booking.reset")}
         </Button>
-        <Button type="submit" disabled={isSubmitting} className="w-full">
-          {isSubmitting ? "Booking..." : "Book table"}
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full cursor-pointer"
+        >
+          {isSubmitting ? t("booking.submitting") : t("booking.bookingTable")}
         </Button>
       </div>
     </form>

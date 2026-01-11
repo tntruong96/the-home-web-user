@@ -57,12 +57,25 @@
     "numberOfPeople": "Số khách",
     "date": "Ngày",
     "time": "Thời gian",
-    "branch": "Chi nhánh"
+    "location": "Chi nhánh",
+    "bookingOnline": "Đặt Bàn Trực Tuyến",
+    "reset": "Xoá thông tin",
+    "bookingTable": "Đặt bàn",
+    "submitting": "Đang gửi thông tin..."
   },
   "hero": {
     "headline1": "Mời bạn khám phá Đặc Sản Việt",
     "headline2": "trên Đế bánh Pizza Ý",
     "bookTableButton": "Đặt bàn",
     "loading": "Đang tải..."
+  },
+  "error": {
+    "fullnameError": "Họ và tên phải có ít nhất 2 ký tự.",
+    "phoneMin": "Số điện thoại phải có ít nhất 10 số.",
+    "phoneMax": "Số điện thoại quá dài.",
+    "phoneInvalid": "Số điện thoại không đúng.",
+    "dateError": "Hãy lựa chọn 1 ngày.",
+    "timeError": "Hãy lựa chọn 1 khung giờ.",
+    "locationError": "Hãy lựa chọn một chi nhánh."
   }
 }
