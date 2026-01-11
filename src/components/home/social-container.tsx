@@ -99,9 +99,9 @@ const SocialContainer = () => {
                   href="https://www.youtube.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative block overflow-hidden  bg-neutral-100 h-[200px]"
+                  className="group relative block overflow-hidden  bg-neutral-100 h-[200px] sm:h-[300px] md:h-[200px]"
                 >
-                  <div className="relative aspect-square h-[200px] w-full">
+                  <div className="relative aspect-square h-[200px] sm:h-[300px] md:h-[200px] w-full">
                     <Image
                       src={video.src}
                       alt={video.alt}

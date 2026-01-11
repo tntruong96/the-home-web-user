@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 interface LibraryItem {
-  id: any;
+  id: string;
   title: string;
   imageSrc: string;
   imageAlt: string;
@@ -49,11 +49,6 @@ const LibrarySliderItem = ({
       <div className="flex flex-1 flex-col justify-between px-4 py-5">
         <p className="mt-2 text-sm font-medium leading-snug text-neutral-900">
           {item.title}
-        </p>
-        <p className="mt-3 text-xs text-neutral-500">
-          {isActive
-            ? "Click again to open this story."
-            : "Click to highlight this story."}
         </p>
       </div>
     </button>

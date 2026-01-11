@@ -41,10 +41,10 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
       href: menuHref,
       title: t("nav.menu"),
     },
-    {
-      href: locationsHref,
-      title: t("nav.store"),
-    },
+    // {
+    //   href: locationsHref,
+    //   title: t("nav.store"),
+    // },
     {
       href: hiringHref,
       title: t("nav.hiring"),
@@ -61,7 +61,7 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
           currentLocale={currentLocale}
         />
         {/* Left: Navigation Links */}
-        <nav className="flex-1/3 hidden sm:flex sm:justify-around">
+        <nav className="flex-1/3 hidden md:flex sm:justify-around">
           {navItem.map((nav) => (
             <NavItem
               key={nav.href}
@@ -120,7 +120,7 @@ const NavItem = ({
     <Link
       href={href}
       onClick={onClick}
-      className={`${className} text-center text-gray-700 text-sm lg:text-base transition-colors font-playfair-display sm:min-w-36 lg:min-w-40  ${
+      className={`${className} text-center text-gray-700 text-[12px] lg:text-base transition-colors font-playfair-display sm:min-w-26 lg:min-w-36  ${
         isActive
           ? "underline text-gray-900 underline-offset-4 font-semibold"
           : "hover:text-gray-900"
@@ -144,7 +144,7 @@ const HamburgerButton = ({
   const t = useTranslations("header");
 
   return (
-    <div className="block sm:hidden flex-1/3">
+    <div className="block md:hidden flex-1/3">
       <Drawer direction="left" open={open}>
         <DrawerTrigger asChild>
           <Button variant="outline" onClick={() => setOpen(!open)}>

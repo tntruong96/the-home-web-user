@@ -16,32 +16,32 @@ export type LibraryItem = {
 
 const libraryItems: LibraryItem[] = [
   {
-    id: "founder-message",
-    title: "Message from The home's founder",
+    id: "nha",
+    title: "Câu Chuyện Của Nhà",
     imageSrc: "/location-1.avif",
     imageAlt: "Two people smiling in front of the restaurant",
-    href: "/library/founder-message",
+    href: "/stories/founder-message",
+  },
+  {
+    id: "founder-message",
+    title: "Câu Chuyện Đặc Sản Việt",
+    imageSrc: "/location-1.avif",
+    imageAlt: "Two people smiling in front of the restaurant",
+    href: "/stories/founder-message",
   },
   {
     id: "sustainability",
-    title: "Sustainability journey",
+    title: "Con Người",
     imageSrc: "/location-2.avif",
     imageAlt: "Green plants in the restaurant",
-    href: "/library/sustainability",
+    href: "/stories/sustainability",
   },
   {
     id: "craft",
-    title: "Craft & community",
+    title: "Không Gian",
     imageSrc: "/location-1.avif",
     imageAlt: "Interior view of the dining space",
-    href: "/library/craft-community",
-  },
-  {
-    id: "stories",
-    title: "Stories from The Home",
-    imageSrc: "/location-1.avif",
-    imageAlt: "Table with food and drinks",
-    href: "/library/stories",
+    href: "/stories/craft-community",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function LibrarySlider() {
 
   return (
     <>
-      <section className="mx-auto mt-10 max-w-screen-xl px-4 py-10 md:py-14 hidden lg:block">
+      <section className="mx-auto mt-10 max-w-screen-xl px-4 py-10 md:py-16 hidden lg:block">
         <div className="flex flex-col md:flex-row md:items-stretch">
           <div className="flex flex-col justify-center items-center border border-neutral-200 bg-neutral-50 px-4 py-10 md:w-72">
             <div className="flex flex-col items-center justify-center">
@@ -108,7 +108,7 @@ export default function LibrarySlider() {
           </div>
         </div>
       </section>
-      <section className="lg:hidden">
+      <section className="lg:hidden py-8">
         <div>
           <h2 className="my-3 sm:my-0 text-3xl font-playfair-display font-medium leading-snug text-neutral-900 text-center">
             Moments of The Home

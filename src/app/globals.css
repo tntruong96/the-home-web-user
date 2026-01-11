@@ -137,3 +137,16 @@
     @apply bg-cover bg-no-repeat;
   }
 }
+
+input[type="date"] {
+  appearance: none; /* Removes default OS styling in some browsers */
+  -webkit-appearance: none; /* For older Webkit browsers */
+  /* width: 150px; */
+  font-family: "Helvetica", arial, sans-serif;
+  font-size: 18px;
+  border: 1px solid #ecf0f1;
+
+  padding: 5px;
+  display: inline-block;
+  visibility: visible;
+}

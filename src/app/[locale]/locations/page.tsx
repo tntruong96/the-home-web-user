@@ -11,21 +11,19 @@ import {
 
 export default async function LocationsPage() {
   //   const t = useTranslations("locations");
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery({
-    queryKey: ["carousel-items"],
-    queryFn: () => graphqlRequest(CAROUSEL_ITEM_QUERY),
-  });
+  // const queryClient = new QueryClient();
+  // await queryClient.prefetchQuery({
+  //   queryKey: ["carousel-items"],
+  //   queryFn: () => graphqlRequest(CAROUSEL_ITEM_QUERY),
+  // });
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className="min-h-screen bg-white">
-        {/* Hero Carousel */}
-        <HeroCarousel />
+    <div className="min-h-screen bg-white">
+      {/* Hero Carousel */}
+      <HeroCarousel />
 
-        {/* Location Cards */}
-        <LocationCards />
-      </div>
-    </HydrationBoundary>
+      {/* Location Cards */}
+      <LocationCards />
+    </div>
   );
 }

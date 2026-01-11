@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HeroVideo() {
   const t = useTranslations("hero");
@@ -128,17 +129,18 @@ export default function HeroVideo() {
         {/* Left Side - Text Content */}
         <div className="flex flex-1 flex-col justify-center px-6 py-12 md:px-12 lg:px-16">
           <div className="max-w-4xl flex flex-col items-center justify-center md:block ">
-            <h1 className="mb-6 text-xl md:text-4xl font-bold leading-tight text-white font-playfair-display text-center sm:text-left">
+            <h1 className="mb-6 text-xl md:text-4xl font-bold leading-tight text-white font-playfair-display text-center md:text-left">
               <span className="block">{t("headline1")}</span>
               <span className="block">{t("headline2")}</span>
             </h1>
-
-            <Button
-              onClick={handleBookTable}
-              className="mb-4 h-12 rounded-full bg-green-600 px-8 text-base font-semibold text-white transition hover:bg-green-700  md:text-lg"
-            >
-              {t("bookTableButton")}
-            </Button>
+            <Link href={"/booking"}>
+              <Button
+                onClick={handleBookTable}
+                className="mb-4 h-12 rounded-full bg-green-600 px-8 text-base font-semibold text-white transition hover:bg-green-700  md:text-lg"
+              >
+                {t("bookTableButton")}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
