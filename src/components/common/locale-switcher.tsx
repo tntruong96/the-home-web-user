@@ -76,7 +76,7 @@ const LocaleSwitcherSelect: (
       onValueChange={(value) => onSelect(value)}
     >
       <SelectTrigger
-        className="w-fit border-none uppercase text-lg font-extrabold focus:ring-offset-0 focus:ring-0 "
+        className="w-fit border-none bg-transparent uppercase text-lg font-extrabold focus:ring-offset-0 focus:ring-0 "
         showIcon={false}
       >
         {label}

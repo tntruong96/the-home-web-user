@@ -69,7 +69,7 @@ export default function HeroVideo() {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative min-h-screen w-full overflow-hidden bg-transparent">
       {/* Loading Screen */}
       {isVideoLoading && !videoError && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-900 transition-opacity duration-500">

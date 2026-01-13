@@ -37,12 +37,12 @@ const youtubeVideos = [
 const SocialContainer = () => {
   const t = useTranslations();
   return (
-    <section className="mx-auto max-w-screen-xl px-4 py-12 md:py-16">
+    <section className="mx-auto container my-24">
       <div className="flex flex-col gap-6 lg:gap-8">
-        <div className="grid gap-4 lg:gap-6 lg:grid-cols-12">
+        <div className="grid gap-16 lg:gap-6 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <div className="flex items-center gap-2 md:gap-3 mb-4">
-              <span className="text-xl uppercase tracking-wide text-neutral-600 font-playfair-display">
+              <span className="text-xl uppercase tracking-wide ">
                 {t("main.follow")}
               </span>
               <a
@@ -79,7 +79,7 @@ const SocialContainer = () => {
           </div>
           <div className="lg:col-span-4 ">
             <div className="flex items-center gap-2 md:gap-3 mb-4">
-              <span className="text-xl uppercase tracking-wide text-neutral-600 font-playfair-display">
+              <span className="text-xl uppercase tracking-wide ">
                 {t("main.subscribe")}
               </span>
               <a

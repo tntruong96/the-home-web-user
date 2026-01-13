@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Playfair_Display } from "next/font/google";
+import { Be_Vietnam_Pro, Playfair_Display, Raleway } from "next/font/google";
 import "../globals.css";
 import QueryProvider from "@/providers/query-provider";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -20,10 +20,10 @@ const playfairDisplay = Playfair_Display({
   preload: false,
 });
 
-const BeVietnamPro = Be_Vietnam_Pro({
-  variable: "--font-be-vietnam-pro",
+const ralewayFont = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
-  weight: ["500", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   preload: false,
 });
@@ -55,7 +55,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`font-be-vietnam-pro ${BeVietnamPro.variable} ${playfairDisplay.variable}  antialiased`}
+        className={` ${ralewayFont.variable} ${playfairDisplay.variable}  antialiased drop-shadow-2xl`}
       >
         <NextIntlClientProvider messages={messages}>
           <Header currentLocale={locale} />

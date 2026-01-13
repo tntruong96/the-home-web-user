@@ -51,7 +51,7 @@ const timeOptions = generateTimeOptions(15);
 const peopleOptions = Array.from({ length: 30 }, (_, i) => i + 1);
 
 const inputClassName =
-  "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-- focus:ring-ring focus:ring-offset-0";
+  " flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-- focus:ring-ring focus:ring-offset-0";
 
 const errorClassName = "text-red-500 text-xs mt-1";
 
@@ -105,7 +105,7 @@ const FormBooking = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col justify-center gap-8 w-80 md:w-[500px]"
+      className="flex flex-col justify-center gap-8 w-80 md:w-[500px] color"
     >
       <div className="">
         <input
@@ -238,7 +238,7 @@ const FormBooking = () => {
         <Button
           type="reset"
           variant="outline"
-          className="w-full cursor-pointer"
+          className="w-full cursor-pointer text-black font-semibold"
           onClick={() => reset()}
         >
           {t("booking.reset")}
@@ -246,7 +246,7 @@ const FormBooking = () => {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full cursor-pointer"
+          className="w-full cursor-pointer text-black font-semibold"
         >
           {isSubmitting ? t("booking.submitting") : t("booking.bookingTable")}
         </Button>

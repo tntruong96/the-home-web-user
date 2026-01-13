@@ -1,13 +1,8 @@
-import { Play } from "lucide-react";
-import Image from "next/image";
 import { getLocale } from "next-intl/server";
-import { QueryClient } from "@tanstack/react-query";
 
-import InteractiveMap from "@/components/home/interactive-map";
-import LibrarySlider from "@/components/home/library-slider";
+import AwardComponent from "@/components/home/award-container";
 import HeroVideo from "@/components/home/hero-video";
-import { QUERY_KEYS } from "@/hooks/keys";
-import { getDishes } from "@/services/menu";
+import LibrarySlider from "@/components/home/library-slider";
 import SocialContainer from "@/components/home/social-container";
 
 export default async function HomePage() {
@@ -30,8 +25,10 @@ export default async function HomePage() {
   // ]);
 
   return (
-    <main className="">
+    <main className="-mt-1">
       <HeroVideo />
+
+      <AwardComponent />
 
       <LibrarySlider />
 
