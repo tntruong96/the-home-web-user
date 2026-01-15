@@ -7,7 +7,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
-import logo from "../../../public/logo.png";
+import logo_xanh from "../../../public/full-logo-xanh.png";
+import logo_be from "../../../public/full-logo-be.png";
 import { Button } from "../ui/button";
 import {
   Drawer,
@@ -71,13 +72,12 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
 
   return (
     <header
-      // className="bg-transparent"
       className={`w-full z-50  h-0 ${
         scrolled ? "sticky top-0" : "absolute inset-x-0 top-0"
       }`}
     >
       <div
-        className={`flex mx-auto h-16 items-center justify-between px-4 transition-all duration-1000 ${
+        className={`flex mx-auto h-16 items-center justify-between px-4 transition-all duration-1000 relative ${
           scrolled ? "bg-primary shadow-xl" : "bg-transparent shadow-2xl"
         }`}
       >
@@ -92,10 +92,10 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
         <div className="flex-2/4 md:flex-1/4  flex justify-center">
           <Link href={`/${currentLocale}`} className="flex items-center">
             <Image
-              src={logo}
+              src={logo_xanh}
               alt="logo"
-              width={50}
-              height={50}
+              width={300}
+              height={300}
               className="w-full h-full"
             />
           </Link>
@@ -118,7 +118,8 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
           {/* <LanguageSelector currentLocale={currentLocale} /> */}
           <LocaleSwitcher />
           <Link
-            href={`/${currentLocale}/booking`}
+            target="_blank"
+            href={`https://booking.ipos.vn/public/booking/878f61f7-5486-462a-9a48-43bd4b316758?source=IFRAME&css=overflow-y:hidden;`}
             className="hidden sm:block bg-black text-white px-4 w-32 min-w-20 py-2 rounded-4xl hover:bg-gray-800 transition-colors text-center"
           >
             {t("bookTable")}
@@ -149,8 +150,8 @@ const NavItem = ({
       onClick={onClick}
       className={`${className} text-center text-black text-base lg:text-xl transition-colors font-raleway font-semibold sm:min-w-26 lg:min-w-36  ${
         isActive
-          ? "underline text-gray-900 underline-offset-6 font-extrabold"
-          : "hover:text-gray-900"
+          ? "underline underline-offset-6 font-extrabold"
+          : "hover:opacity-70"
       }`}
     >
       {children}
@@ -183,15 +184,15 @@ const HamburgerButton = ({
           </Button>
         </DrawerTrigger>
         <DrawerPortal>
-          <DrawerContent className="!w-[100vw] bg-primary border-none">
+          <DrawerContent className=" bg-primary border-none h-dvh">
             <DrawerClose
-              className="w-[20px] fixed top-4 right-4"
+              className="w-[20px] fixed top-4 right-4 z-50"
               onClick={() => setOpen(false)}
             >
               <MdClose size={30} />
             </DrawerClose>
             {/* <DrawerDescription> */}
-            <nav className="flex flex-col items-center justify-center gap-8 h-dvh">
+            <nav className="flex flex-col items-center justify-center gap-8 h-full">
               {navItems.map((nav) => (
                 <NavItem
                   className="!text-2xl"

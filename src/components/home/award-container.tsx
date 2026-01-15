@@ -4,25 +4,25 @@ import React from "react";
 const awards = [
   {
     alt: "abc",
-    src: "/location-1.avif",
+    src: "/michelin.webp",
   },
   {
     alt: "abc",
-    src: "/location-1.avif",
+    src: "/tripadvisor-1.webp",
   },
   {
     alt: "abc",
-    src: "/location-1.avif",
+    src: "/tripadvisor-2.webp",
   },
   {
     alt: "abc",
-    src: "/location-1.avif",
+    src: "/tripadvisor.webp",
   },
 ];
 
 const AwardComponent = () => {
   return (
-    <div className="relative mx-auto my-24 container flex justify-center items-center gap-4 sm:gap-16">
+    <div className="relative mx-auto my-24 container flex justify-center items-center gap-8 sm:gap-16 lg:gap-20">
       {awards.map((award, i) => (
         <div
           key={i}

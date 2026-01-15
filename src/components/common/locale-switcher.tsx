@@ -1,3 +1,4 @@
+"use client";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
@@ -17,7 +18,7 @@ const LocaleSwitcher = () => {
 
   function onSelectChange(value: string) {
     // const nextLocale = event.target.value as Locale;
-    console.log(value);
+
     // startTransition(() => {
     router.replace(
       // @ts-expect-error -- TypeScript will validate that only known `params`

@@ -1,3 +1,4 @@
+import InteractiveMap from "@/components/common/interactive-map";
 import MenuComponent from "@/components/menu/menu";
 import MenuContent from "@/components/menu/menu-content";
 import { QUERY_KEYS } from "@/hooks/keys";
@@ -22,8 +23,10 @@ export default async function MenuPage() {
     //     <MenuContent />
     //   </div>
     // </HydrationBoundary>
-    <div className="w-full flex justify-center items-center my-4 md:my-12">
+    <section className="pt-40 pb-16 container mx-auto ">
+      <InteractiveMap />
+
       <MenuComponent />
-    </div>
+    </section>
   );
 }

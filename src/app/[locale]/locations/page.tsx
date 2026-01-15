@@ -1,6 +1,9 @@
 // import { useTranslations } from "next-intl";
+
 import HeroCarousel from "@/components/locations/hero-carousel";
 import LocationCards from "@/components/locations/location-cards";
+import LocationStory from "@/components/locations/story";
+import { CarouselItem } from "@/components/ui/carousel";
 import { CAROUSEL_ITEM_QUERY } from "@/hooks/graph-query/carousel-item";
 import { graphqlRequest } from "@/lib/graphql";
 import {
@@ -8,6 +11,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
+import Image from "next/image";
 
 export default async function LocationsPage() {
   //   const t = useTranslations("locations");
@@ -18,12 +22,13 @@ export default async function LocationsPage() {
   // });
 
   return (
-    <div className="min-h-screen bg-white">
+    <section className="container mx-auto md:max-w-5xl px-4">
+      <LocationStory />
       {/* Hero Carousel */}
       <HeroCarousel />
 
       {/* Location Cards */}
       <LocationCards />
-    </div>
+    </section>
   );
 }

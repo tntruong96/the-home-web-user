@@ -23,20 +23,8 @@ const LibrarySliderItem = ({
   activeIndex: number | undefined;
   length: number;
 }) => {
-  console.log(activeIndex);
-  console.log(index);
   // Calculate z-index based on position relative to active card
   const getZIndex = () => {
-    // if (isActive && (activeIndex === 0 || activeIndex === length - 1)) {
-    //   return "z-[5]";
-    // }
-    // if (activeIndex !== undefined) {
-    //   const distance = Math.abs(activeIndex - index);
-    //   if (distance === 1) {
-    //     return "z-[3]";
-    //   }
-    // }
-    // return "z-[2]";
     if (activeIndex === undefined) {
       return "z-[2]";
     }

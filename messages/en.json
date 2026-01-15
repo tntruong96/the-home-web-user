@@ -27,6 +27,16 @@
       "vietnamesePizza": "VIETNAMESE SPECIALTY PIZZA",
       "classicPizza": "CLASSIC PIZZA",
       "pasta": "PASTA"
+    },
+    "filter": {
+      "salad": "Salad & Appetizer",
+      "appetizer": "Appetizer",
+      "main": "Main",
+      "pasta": "Pasta",
+      "vietnamesePizza": "Vietnamese Specialty Pizza",
+      "classicPizza": "Traditional Pizza",
+      "dessert": "Dessert",
+      "drink": "Drink"
     }
   },
   "locations": {
@@ -77,5 +87,14 @@
     "dateError": "Please select a date",
     "timeError": "Please select a time",
     "locationError": "Please select a location"
+  },
+  "career": {
+    "human": "Human Of The Home",
+    "careerPath": "Career Path",
+    "findMember": "Home's Searching Members",
+    "findJob": "Find Jobs",
+    "jobPosition": "Jobs Position",
+    "searchPlaceholder": "Text Something.",
+    "location": "Location"
   }
 }

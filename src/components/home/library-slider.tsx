@@ -20,28 +20,28 @@ const libraryItems: LibraryItem[] = [
     title: "Câu Chuyện Của Nhà",
     imageSrc: "/location-1.avif",
     imageAlt: "Two people smiling in front of the restaurant",
-    href: "/stories/founder-message",
+    href: "/about-us",
   },
   {
     id: "founder-message",
     title: "Câu Chuyện Đặc Sản Việt",
     imageSrc: "/location-1.avif",
     imageAlt: "Two people smiling in front of the restaurant",
-    href: "/stories/founder-message",
+    href: "/vietnamese-specialties",
   },
   {
     id: "sustainability",
     title: "Con Người",
     imageSrc: "/location-2.avif",
     imageAlt: "Green plants in the restaurant",
-    href: "/stories/sustainability",
+    href: "/human",
   },
   {
     id: "craft",
     title: "Không Gian",
     imageSrc: "/location-1.avif",
     imageAlt: "Interior view of the dining space",
-    href: "/stories/craft-community",
+    href: "/locations",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function LibrarySlider() {
   const params = useParams();
   const t = useTranslations();
   const [activeId, setActiveId] = useState<string | null>(libraryItems[0]?.id);
-  const [activeIndex, setActiveIndex] = useState<number | undefined>(undefined);
+  const [activeIndex, setActiveIndex] = useState<number | undefined>(0);
 
   const locale = typeof params?.locale === "string" ? params.locale : "en";
 

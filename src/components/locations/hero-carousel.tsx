@@ -12,7 +12,7 @@ export default function HeroCarousel() {
   // const carouselItem = data?.heroCarouselItems[0]?.images ?? [];
 
   return (
-    <div className="flex justify-center md:items-center md:h-[650px]">
+    <div className="flex justify-center md:items-center my-8">
       <Carousel
         opts={{
           align: "start",
@@ -30,7 +30,7 @@ export default function HeroCarousel() {
           {/* {carouselItem.map((item) => ( */}
           <CarouselItem
             // key={item.documentId}
-            className="w-xl h-[500px] relative p-1"
+            className="w-full aspect-video relative p-1"
           >
             <Image
               // src={`${process.env.NEXT_PUBLIC_ENDPOINT}${item?.url}`}

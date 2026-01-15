@@ -56,14 +56,6 @@ export default function HeroVideo() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleBookTable = () => {
-    router.push(`/${locale}/booking`);
-  };
-
-  const handleBringHome = () => {
-    router.push(`/${locale}/store`);
-  };
-
   const handleVideoCanPlay = () => {
     setIsVideoLoading(false);
   };
@@ -133,9 +125,12 @@ export default function HeroVideo() {
               <span className="block">{t("headline1")}</span>
               <span className="block">{t("headline2")}</span>
             </h1>
-            <Link href={"/booking"}>
+            <Link
+              target="_blank"
+              href={`https://booking.ipos.vn/public/booking/878f61f7-5486-462a-9a48-43bd4b316758?source=IFRAME&css=overflow-y:hidden;`}
+            >
               <Button
-                onClick={handleBookTable}
+                // onClick={handleBookTable}
                 className="mb-4 h-12 rounded-full bg-green-600 px-8 text-base font-semibold text-white transition hover:bg-green-700  md:text-lg"
               >
                 {t("bookTableButton")}
@@ -146,7 +141,7 @@ export default function HeroVideo() {
       </div>
 
       {/* Scroll to Top Button */}
-      {showScrollTop && (
+      {/* {showScrollTop && (
         <button
           onClick={handleScrollToTop}
           className="fixed bottom-6 right-6 z-50 rounded-full bg-black p-3 shadow-lg transition hover:opacity-80 md:bottom-8 md:right-4 md:p-2"
@@ -154,7 +149,7 @@ export default function HeroVideo() {
         >
           <ChevronUp className="h-5 w-5 text-white md:h-6 md:w-6" />
         </button>
-      )}
+      )} */}
     </section>
   );
 }

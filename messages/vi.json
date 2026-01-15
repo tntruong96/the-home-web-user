@@ -27,6 +27,16 @@
       "vietnamesePizza": "PIZZA ĐẶC SẢN VIỆT",
       "classicPizza": "PIZZA CLASSIC",
       "pasta": "PASTA"
+    },
+    "filter": {
+      "salad": "Salad và Khai Vị",
+      "appetizer": "Khai vị",
+      "main": "Món Nóng",
+      "pasta": "Mỳ Ý",
+      "vietnamesePizza": "Pizza Đặc Sản Việt",
+      "classicPizza": "Pizza Truyền Thống",
+      "dessert": "Tráng Miệng",
+      "drink": "Đồ Uống"
     }
   },
   "locations": {
@@ -77,5 +87,14 @@
     "dateError": "Hãy lựa chọn 1 ngày.",
     "timeError": "Hãy lựa chọn 1 khung giờ.",
     "locationError": "Hãy lựa chọn một chi nhánh."
+  },
+  "career": {
+    "human": "Câu chuyện của Nhà và cộng sự",
+    "careerPath": "Con đường sự nghiệp",
+    "findMember": "Nhà tìm người nhà",
+    "findJob": "Tìm việc",
+    "jobPosition": "Vị Trí",
+    "searchPlaceholder": "Tìm Kiếm.",
+    "location": "Cơ Sở"
   }
 }
