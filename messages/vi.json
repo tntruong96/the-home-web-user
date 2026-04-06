@@ -5,6 +5,7 @@
       "aboutHome": "Về The Home",
       "booking": "Đặt Bàn",
       "menu": "Thực Đơn",
+      "human": "Người Nhà",
       "hiring": "Tuyển Dụng",
       "store": "Cửa Hàng"
     },
@@ -13,7 +14,7 @@
     "language": "Ngôn ngữ"
   },
   "footer": {
-    "followUs": "Follow Us!",
+    "followUs": "[ Follow Nhà ]",
     "social": "Theo dõi chúng tôi",
     "facebook": "Facebook",
     "instagram": "Instagram"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Playfair_Display, Raleway } from "next/font/google";
+import { Playfair_Display, Raleway } from "next/font/google";
 import "../globals.css";
 import QueryProvider from "@/providers/query-provider";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -11,6 +11,7 @@ import { getMessages } from "next-intl/server";
 import Header from "@/components/common/header";
 import { DeviceProvider } from "@/hooks/useDeviceContext";
 import { Toaster } from "@/components/ui/sonner";
+import localFont from "next/font/local";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -24,6 +25,13 @@ const ralewayFont = Raleway({
   variable: "--font-raleway",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  preload: false,
+});
+
+const abygaer = localFont({
+  src: "../../../fonts/Abygaer.otf",
+  variable: "--font-abygaer",
   display: "swap",
   preload: false,
 });
@@ -55,7 +63,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={` ${ralewayFont.variable} ${playfairDisplay.variable}  antialiased drop-shadow-2xl`}
+        className={`${ralewayFont.variable} ${playfairDisplay.variable} ${abygaer.variable} antialiased drop-shadow-2xl`}
       >
         <NextIntlClientProvider messages={messages}>
           <Header currentLocale={locale} />

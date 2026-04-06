@@ -4,6 +4,15 @@ import AwardComponent from "@/components/home/award-container";
 import HeroVideo from "@/components/home/hero-video";
 import LibrarySlider from "@/components/home/library-slider";
 import SocialContainer from "@/components/home/social-container";
+import StoryCardsSection from "@/components/home/story-cards-section";
+import MenuLandingSplit from "@/components/menu/menu-landing-split";
+import MenuLandingImmersive from "@/components/menu/menu-landing-immersive";
+import HumansSectionStaggered from "@/components/human/humans-section-staggered";
+import HumansSectionEditorial from "@/components/human/humans-section-editorial";
+import SocialSectionTealEditorial from "@/components/home/social-section-teal-editorial";
+import SocialSectionSplitFeeds from "@/components/home/social-section-split-feeds";
+import TopContainer from "@/components/home/top-container";
+import { cn } from "@/lib/utils";
 
 export default async function HomePage() {
   const locale = await getLocale();
@@ -26,13 +35,36 @@ export default async function HomePage() {
 
   return (
     <main className="-mt-1">
-      <HeroVideo />
+      {/* <HeroVideo /> */}
+      <div
+        className={cn(
+          "[background-image:url('/THP.webp')] ",
+          "bg-center bg-no-repeat bg-cover",
+        )}
+      >
+        <TopContainer />
+        <AwardComponent />
+      </div>
 
-      <AwardComponent />
+      {/* <LibrarySlider /> */}
+      <StoryCardsSection />
 
-      <LibrarySlider />
+      <MenuLandingSplit />
+      {/* <MenuLandingImmersive backgroundSrc="/main-bg.webp" /> */}
 
-      <SocialContainer />
+      <HumansSectionStaggered />
+      {/* <HumansSectionEditorial /> */}
+
+      {/* <SocialSectionTealEditorial
+        facebookUrl="https://..."
+        instagramUrl="https://..."
+      /> */}
+      <SocialSectionSplitFeeds
+        facebookUrl="https://..."
+        instagramUrl="https://..."
+      />
+
+      {/* <SocialContainer /> */}
     </main>
   );
 }

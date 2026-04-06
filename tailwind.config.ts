@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     colors: {},
     fontFamily: {
-      beVietNamPro: ["var(--font-be-vietnam-pro)"],
+      ralewayFont: ["var(--font-raleway)"],
       playFairDisplay: ["var(--font-playfair-display)"],
+      abygaer: ["var(--font-abygaer)"],
     },
     extend: {
       spacing: {

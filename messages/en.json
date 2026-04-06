@@ -2,9 +2,10 @@
   "header": {
     "logo": "The Home",
     "nav": {
-      "aboutHome": "About The Home",
+      "aboutHome": "Story Of The Home",
       "booking": "Booking",
       "hiring": "Hiring",
+      "human": "Human Of The Home",
       "menu": "Menu",
       "store": "Store"
     },

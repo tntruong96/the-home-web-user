@@ -8,6 +8,7 @@ import React from "react";
 import ef from "../../../public/england_flag.webp";
 import vf from "../../../public/vietnam_flag.webp";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "../ui/select";
+import { ArrowDown } from "lucide-react";
 
 const LocaleSwitcher = () => {
   const t = useTranslations("LocaleSwitcher");
@@ -25,7 +26,7 @@ const LocaleSwitcher = () => {
       // are used in combination with a given `pathname`. Since the two will
       // always match for the current route, we can skip runtime checks.
       { pathname, params },
-      { locale: value }
+      { locale: value },
     );
     // });
   }
@@ -67,7 +68,7 @@ const LocaleSwitcherSelect: (
     defaultValue: string;
     label: string;
     onSelect: (value: string) => void;
-  }
+  },
 ) => React.JSX.Element = (props) => {
   const { children, label, defaultValue, onSelect } = props;
 
@@ -77,10 +78,13 @@ const LocaleSwitcherSelect: (
       onValueChange={(value) => onSelect(value)}
     >
       <SelectTrigger
-        className="w-fit border-none bg-transparent uppercase text-lg font-extrabold focus:ring-offset-0 focus:ring-0 "
+        className="w-fit border-none bg-transparent text-white uppercase text-sm lg:text-lg font-light focus:ring-offset-0 focus:ring-0 p-0 "
         showIcon={false}
       >
-        {label}
+        <div className="flex items-center">
+          {label}
+          <ArrowDown className="h-4 w-4" />
+        </div>
       </SelectTrigger>
       <SelectContent>{children}</SelectContent>
     </Select>

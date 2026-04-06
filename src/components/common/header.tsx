@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
-import logo_xanh from "../../../public/full-logo-xanh.png";
+import logo_white from "../../../public/logo-white.png";
 import logo_be from "../../../public/full-logo-be.png";
 import { Button } from "../ui/button";
 import {
@@ -49,7 +49,7 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
     // },
     {
       href: hiringHref,
-      title: t("nav.hiring"),
+      title: t("nav.human"),
     },
   ];
 
@@ -92,16 +92,16 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
         <div className="flex-2/4 md:flex-1/4  flex justify-center">
           <Link href={`/${currentLocale}`} className="flex items-center">
             <Image
-              src={logo_xanh}
+              src={logo_white}
               alt="logo"
-              width={300}
-              height={300}
+              width={150}
+              height={150}
               className="w-full h-full"
             />
           </Link>
         </div>
 
-        <nav className="flex-2/4 hidden md:flex sm:justify-around">
+        <nav className="flex-2/4 hidden md:flex sm:justify-center gap-8">
           {navItem.map((nav) => (
             <NavItem
               key={nav.href}
@@ -111,16 +111,16 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
               {nav.title}
             </NavItem>
           ))}
+          <LocaleSwitcher />
         </nav>
 
         {/* Right: Language Selector & Booking Button */}
         <div className="flex-1/4 flex items-center justify-end gap-2">
           {/* <LanguageSelector currentLocale={currentLocale} /> */}
-          <LocaleSwitcher />
           <Link
             target="_blank"
             href={`https://booking.ipos.vn/public/booking/878f61f7-5486-462a-9a48-43bd4b316758?source=IFRAME&css=overflow-y:hidden;`}
-            className="hidden sm:block bg-black text-white px-4 w-32 min-w-20 py-2 rounded-4xl hover:bg-gray-800 transition-colors text-center"
+            className="hidden md:block bg-transparent border border-white text-white font-semibold md:px-2 lg:px-12 md:w-32  lg:w-48 min-w-20   hover:bg-gray-800 transition-colors text-center"
           >
             {t("bookTable")}
           </Link>
@@ -148,7 +148,7 @@ const NavItem = ({
     <Link
       href={href}
       onClick={onClick}
-      className={`${className} text-center text-black text-base lg:text-xl transition-colors font-raleway font-semibold sm:min-w-26 lg:min-w-36  ${
+      className={`${className} text-center text-white text-sm lg:text-base transition-colors font-raleway font-light sm:min-w-26 lg:min-w-36 flex items-center justify-around  ${
         isActive
           ? "underline underline-offset-6 font-extrabold"
           : "hover:opacity-70"
@@ -195,7 +195,7 @@ const HamburgerButton = ({
             <nav className="flex flex-col items-center justify-center gap-8 h-full">
               {navItems.map((nav) => (
                 <NavItem
-                  className="!text-2xl"
+                  className=" lg:!text-2xl"
                   key={nav.href}
                   pathName={pathName}
                   href={nav.href}
