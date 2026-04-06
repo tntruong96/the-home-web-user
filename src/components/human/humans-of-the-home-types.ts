@@ -19,11 +19,11 @@ export const defaultHumansImages: {
   secondary: HumansSectionImage;
 } = {
   primary: {
-    src: "/human.webp",
+    src: "/aisle.png",
     alt: "Không gian The Home",
   },
   secondary: {
-    src: "/human-1.webp",
+    src: "/room.png",
     alt: "Không gian nội thất The Home",
   },
 };

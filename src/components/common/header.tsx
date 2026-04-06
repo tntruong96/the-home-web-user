@@ -29,6 +29,7 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
   const menuHref = `/${currentLocale}/menu`;
   const locationsHref = `/${currentLocale}/locations`;
   const hiringHref = `/${currentLocale}/hiring`;
+  const humanHref = `/${currentLocale}/human`;
 
   const navItem = [
     {
@@ -48,7 +49,7 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
     //   title: t("nav.store"),
     // },
     {
-      href: hiringHref,
+      href: humanHref,
       title: t("nav.human"),
     },
   ];

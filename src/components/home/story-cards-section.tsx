@@ -32,7 +32,7 @@ const DEFAULT_HERO: StoryCardData = {
 
 const DEFAULT_STORIES: [StoryCardData, StoryCardData, StoryCardData] = [
   {
-    href: "/human",
+    href: "/vietnamese-specialties",
     imageSrc: "/st2.png",
     imageAlt: "Câu chuyện Đặc Sản Việt",
     title: "Câu chuyện Đặc Sản Việt",
@@ -40,7 +40,7 @@ const DEFAULT_STORIES: [StoryCardData, StoryCardData, StoryCardData] = [
       "Ẩm thực Việt Nam được bồi đắp từ chính dải đất trải dài từ ôn đới xuống nhiệt đới...",
   },
   {
-    href: "/menu",
+    href: "/human",
     imageSrc: "/st3.png",
     imageAlt: "Người Nhà",
     title: "Người Nhà",

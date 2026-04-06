@@ -68,7 +68,7 @@ const JobForm = () => {
   type JobFormData = z.infer<typeof jobFormSchema>;
 
   return (
-    <div className="w-3/12 fixed bottom-1/5 right-16">
+    <div className="w-3/12 fixed bottom-1/3 right-16">
       <Card className="">
         <form>
           <CardHeader className="text-center font-semibold">
