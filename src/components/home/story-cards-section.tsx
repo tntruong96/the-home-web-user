@@ -200,7 +200,7 @@ export default function StoryCardsSection({
           <div className="lg:col-span-5 flex flex-col justify-end gap-8">
             <div className="hidden lg:flex relative aspect-square h-[200px] w-[200px]">
               <Image
-                src={"/tom.png"}
+                src={"/vector/tom.png"}
                 alt=""
                 fill
                 className="object-contain"

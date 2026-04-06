@@ -39,7 +39,7 @@ export default function HumansSectionStaggered({
     >
       <Image
         className="absolute top-1/2 -right-6"
-        src={"/mac-khen.png"}
+        src={"/vector/mac-khen.png"}
         alt={"mac khen"}
         height={200}
         width={200}
@@ -48,7 +48,7 @@ export default function HumansSectionStaggered({
       />
       <Image
         className="hidden lg:flex absolute top-16 right-1/4"
-        src={"/ca-trich.png"}
+        src={"/vector/ca-trich.png"}
         alt={"ca trich"}
         height={200}
         width={200}
@@ -77,7 +77,7 @@ export default function HumansSectionStaggered({
         <div className="lg:flex w-full justify-between items-end gap-2">
           <div className="hidden lg:flex relative aspect-square w-[150px] h-[150px]">
             <Image
-              src={"/cua.png"}
+              src={"/vector/cua.png"}
               alt={primaryImage.alt}
               fill
               className="object-contain"
