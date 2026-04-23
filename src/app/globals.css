@@ -119,7 +119,7 @@
     @apply border-border outline-ring/50 font-raleway;
   }
   body {
-    @apply bg-primary text-black;
+    @apply text-black;
   }
 }
 

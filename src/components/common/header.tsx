@@ -1,22 +1,21 @@
 "use client";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-// import { LanguageSelector } from "./language-selector";
+
 import { usePathname } from "@/i18n/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { MdClose } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import logo_white from "../../../public/logo-white.png";
-import logo_be from "../../../public/full-logo-be.png";
 import { Button } from "../ui/button";
+
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerPortal,
-  DrawerTrigger,
-} from "../ui/drawer";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
 import LocaleSwitcher from "./locale-switcher";
 
 export default function Header({ currentLocale }: { currentLocale: string }) {
@@ -25,10 +24,7 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
   const [scrolled, setScrolled] = useState(false);
 
   const aboutHref = `/${currentLocale}/about-us`;
-  const bookingHref = `/${currentLocale}/booking`;
   const menuHref = `/${currentLocale}/menu`;
-  const locationsHref = `/${currentLocale}/locations`;
-  const hiringHref = `/${currentLocale}/hiring`;
   const humanHref = `/${currentLocale}/human`;
 
   const navItem = [
@@ -36,18 +32,10 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
       href: aboutHref,
       title: t("nav.aboutHome"),
     },
-    // {
-    //   href: bookingHref,
-    //   title: t("nav.booking"),
-    // },
     {
       href: menuHref,
       title: t("nav.menu"),
     },
-    // {
-    //   href: locationsHref,
-    //   title: t("nav.store"),
-    // },
     {
       href: humanHref,
       title: t("nav.human"),
@@ -72,14 +60,12 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
   }, []);
 
   return (
-    <header
-      className={`w-full z-50  h-0 ${
-        scrolled ? "sticky top-0" : "absolute inset-x-0 top-0"
-      }`}
-    >
+    <header className={`w-full sticky top-0 z-50  h-0 `}>
       <div
-        className={`flex mx-auto h-16 items-center justify-between px-4 transition-all duration-1000 relative ${
-          scrolled ? "bg-primary shadow-xl" : "bg-transparent shadow-2xl"
+        className={`flex mx-auto h-10 items-center justify-between px-4 transition-all duration-1000 relative ${
+          scrolled
+            ? " bg-gradient-to-t from-black/50 via-black/40 to-transparent backdrop-blur-md shadow-2xs"
+            : "bg-transparent shadow-2xl"
         }`}
       >
         {/* Mobile Hamburger */}
@@ -102,7 +88,7 @@ export default function Header({ currentLocale }: { currentLocale: string }) {
           </Link>
         </div>
 
-        <nav className="flex-2/4 hidden md:flex sm:justify-center gap-8">
+        <nav className="flex-2/4 hidden lg:flex sm:justify-center md:gap-4 lg:gap-8">
           {navItem.map((nav) => (
             <NavItem
               key={nav.href}
@@ -149,7 +135,7 @@ const NavItem = ({
     <Link
       href={href}
       onClick={onClick}
-      className={`${className} text-center text-white text-sm lg:text-base transition-colors font-raleway font-light sm:min-w-26 lg:min-w-36 flex items-center justify-around  ${
+      className={`${className} text-center text-white text-sm 2xl:text-base transition-colors font-raleway font-light sm:min-w-26 lg:min-w-36 flex items-center justify-around  ${
         isActive
           ? "underline underline-offset-6 font-extrabold"
           : "hover:opacity-70"
@@ -160,62 +146,58 @@ const NavItem = ({
   );
 };
 
-const HamburgerButton = ({
+export const HamburgerButton = ({
   navItems,
   pathName,
-  currentLocale,
 }: {
   navItems: { href: string; title: string }[];
   pathName: string;
   currentLocale: string;
 }) => {
-  const [open, setOpen] = useState(false);
   const t = useTranslations("header");
 
   return (
-    <div className="block md:hidden flex-1/4">
-      <Drawer direction="left" open={open}>
-        <DrawerTrigger asChild>
+    <div className="block lg:hidden flex-1/4">
+      <Sheet>
+        <SheetTrigger asChild>
           <Button
-            variant="outline"
-            className="bg-transparent border-none"
-            onClick={() => setOpen(!open)}
+            variant="ghost"
+            className="bg-transparent border-none hover:bg-transparent cursor-pointer"
           >
-            <RxHamburgerMenu size={20} />
+            <RxHamburgerMenu color="white" size={20} />
           </Button>
-        </DrawerTrigger>
-        <DrawerPortal>
-          <DrawerContent className=" bg-primary border-none h-dvh">
-            <DrawerClose
-              className="w-[20px] fixed top-4 right-4 z-50"
-              onClick={() => setOpen(false)}
-            >
-              <MdClose size={30} />
-            </DrawerClose>
-            {/* <DrawerDescription> */}
-            <nav className="flex flex-col items-center justify-center gap-8 h-full">
+        </SheetTrigger>
+        <SheetContent
+          side="left"
+          showCloseButton={false}
+          className="border-none  bg-gradient-to-t  from-black/80 via-black/40 to-transparent backdrop-blur-md"
+        >
+          <SheetHeader>
+            <SheetTitle></SheetTitle>
+          </SheetHeader>
+          <div className="flex min-h-0 flex-1 flex-col items-center justify-center">
+            <nav className="flex flex-col items-center gap-8">
               {navItems.map((nav) => (
                 <NavItem
                   className=" lg:!text-2xl"
                   key={nav.href}
                   pathName={pathName}
                   href={nav.href}
-                  onClick={() => setOpen(false)}
                 >
                   {nav.title}
                 </NavItem>
               ))}
-              {/* <Link
-                className="text-center text-gray-700 text-2xl transition-colors font-playfair-display sm:min-w-20 lg:min-w-28"
-                href={`/${currentLocale}/booking`}
+              <Link
+                target="_blank"
+                href={`https://booking.ipos.vn/public/booking/878f61f7-5486-462a-9a48-43bd4b316758?source=IFRAME&css=overflow-y:hidden;`}
+                className="block bg-transparent border border-white text-white md:px-2 lg:px-12 w-48 min-w-20   hover:bg-gray-800 transition-colors text-center"
               >
                 {t("bookTable")}
-              </Link> */}
+              </Link>
             </nav>
-            {/* </DrawerDescription> */}
-          </DrawerContent>
-        </DrawerPortal>
-      </Drawer>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };

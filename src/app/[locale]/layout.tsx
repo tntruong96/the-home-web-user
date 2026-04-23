@@ -63,13 +63,15 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${ralewayFont.variable} ${playfairDisplay.variable} ${abygaer.variable} antialiased drop-shadow-2xl`}
+        className={`${ralewayFont.variable} ${playfairDisplay.variable} ${abygaer.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
           <Header currentLocale={locale} />
+
           <QueryProvider>
             <DeviceProvider>{children}</DeviceProvider>
           </QueryProvider>
+
           <Footer />
         </NextIntlClientProvider>
         <Toaster />
