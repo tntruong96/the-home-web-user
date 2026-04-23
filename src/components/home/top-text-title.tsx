@@ -17,7 +17,7 @@ const TopTextTitle = () => {
       <Link
         target="_blank"
         href={`https://booking.ipos.vn/public/booking/878f61f7-5486-462a-9a48-43bd4b316758?source=IFRAME&css=overflow-y:hidden;`}
-        className=" border border-white rounded-full bg-white text-black font-semibold md:px-2 lg:px-12  w-48 min-w-20 py-1  hover:bg-gray-800 transition-colors text-center"
+        className=" border border-white rounded-full bg-white text-black font-semibold md:px-2 lg:px-12  w-48 min-w-20 py-1  hover:bg-gray-200 transition-colors text-center cursor-pointer"
       >
         {t("header.bookTable")}
       </Link>

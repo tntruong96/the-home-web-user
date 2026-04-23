@@ -1,12 +1,18 @@
 "use client";
 
-import { ChevronUp } from "lucide-react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+
+import { cn } from "@/lib/utils";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import AwardComponent from "./award-container";
+import TopTextTitle from "./top-text-title";
+import { ChevronUp } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroVideo() {
   const t = useTranslations("hero");
@@ -16,13 +22,14 @@ export default function HeroVideo() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const [isVideoLoading, setIsVideoLoading] = useState(true);
+  const containerRef = useRef(null);
+  const contentRef = useRef(null);
+  const awardRef = useRef<HTMLDivElement | null>(null);
 
   const locale = typeof params?.locale === "string" ? params.locale : "en";
 
   // Video configuration - replace with your actual video path
-  const videoSrc = "/mock.mp4"; // Replace with actual video path
-  const fallbackImage = "/main-bg.webp";
-  const foodImage = "/sample.avif";
+  const videoSrc = "/pizza.mp4"; // Replace with actual video path
 
   useEffect(() => {
     // Check if video is already ready (cached)
@@ -52,6 +59,58 @@ export default function HeroVideo() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const container = containerRef.current;
+      const content = contentRef.current;
+      const award = awardRef.current;
+      if (!container || !content || !award) return;
+      // 1. Hiệu ứng ghim (Pin) Container
+      // Khi cuộn vào vùng này, container sẽ đứng yên cho đến khi scroll hết nội dung
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: "+=30%", // Độ dài quãng đường scroll (càng lớn scroll càng lâu)
+        pin: true,
+        scrub: true,
+      });
+
+      // 2. Hiệu ứng nội dung chạy lên
+      gsap.fromTo(
+        contentRef.current,
+        { y: "0vh" }, // Bắt đầu ở dưới cùng màn hình
+        {
+          y: "-60%", // Chạy ngược lên trên hẳn màn hình
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "+=100%",
+            scrub: true,
+          },
+        },
+      );
+      // 3) Award ở đáy: hiện dần khi gần cuối đoạn scroll trong hero
+      gsap.fromTo(
+        awardRef.current,
+        { autoAlpha: 0, y: 40 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top+15% top", // bắt đầu hiện
+            end: "top+=20% top", // hiện full
+            scrub: true,
+          },
+        },
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -61,7 +120,7 @@ export default function HeroVideo() {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-transparent">
+    <main>
       {/* Loading Screen */}
       {isVideoLoading && !videoError && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-900 transition-opacity duration-500">
@@ -77,18 +136,20 @@ export default function HeroVideo() {
           </div>
         </div>
       )}
-
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        {!videoError ? (
+      {/* Main Sticky Section */}
+      <section
+        ref={containerRef}
+        className="relative h-screen w-full overflow-hidden"
+      >
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
           <video
             ref={videoRef}
             autoPlay
-            loop
             muted
+            loop
             playsInline
             className="h-full w-full object-cover"
-            poster={fallbackImage}
             onCanPlay={handleVideoCanPlay}
             onLoadedData={handleVideoCanPlay}
             onPlaying={() => setIsVideoLoading(false)}
@@ -99,57 +160,42 @@ export default function HeroVideo() {
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
-        ) : (
+          {/* Overlay để text dễ đọc hơn */}
+          <div className="absolute inset-0 bg-black/40" />
           <Image
-            src={fallbackImage}
-            alt="Hero background"
+            src={"/vector/map-vector.png"}
+            alt="map"
+            className="object-contain z-100 hidden md:block md:!-left-[150px] lg:!-left-[200px]"
             fill
-            className="object-cover"
-            priority
           />
-        )}
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent" />
-      </div>
-
-      {/* Content Container */}
-      <div
-        className={`relative z-10 flex min-h-screen flex-col transition-opacity duration-700 md:flex-row ${
-          isVideoLoading && !videoError ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        {/* Left Side - Text Content */}
-        <div className="flex flex-1 flex-col justify-center px-6 py-12 md:px-12 lg:px-16">
-          <div className="max-w-4xl flex flex-col items-center justify-center md:block ">
-            <h1 className="mb-6 text-xl md:text-4xl font-bold leading-tight text-white font-playfair-display text-center md:text-left">
-              <span className="block">{t("headline1")}</span>
-              <span className="block">{t("headline2")}</span>
-            </h1>
-            <Link
-              target="_blank"
-              href={`https://booking.ipos.vn/public/booking/878f61f7-5486-462a-9a48-43bd4b316758?source=IFRAME&css=overflow-y:hidden;`}
-            >
-              <Button
-                // onClick={handleBookTable}
-                className="mb-4 h-12 rounded-full bg-green-600 px-8 text-base font-semibold text-white transition hover:bg-green-700  md:text-lg"
-              >
-                {t("bookTableButton")}
-              </Button>
-            </Link>
-          </div>
         </div>
-      </div>
 
+        {/* Nội dung chạy lên */}
+        <div
+          ref={contentRef}
+          className=" h-[120vh] relative z-10 flex flex-col items-center justify-center space-y-20 text-white"
+        >
+          <section className={cn(" h-screen bg-center bg-no-repeat bg-cover")}>
+            <TopTextTitle />
+          </section>
+        </div>
+        <div
+          ref={awardRef}
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-20"
+        >
+          <AwardComponent className="pointer-events-auto" />
+        </div>
+      </section>
       {/* Scroll to Top Button */}
-      {/* {showScrollTop && (
+      {showScrollTop && (
         <button
           onClick={handleScrollToTop}
-          className="fixed bottom-6 right-6 z-50 rounded-full bg-black p-3 shadow-lg transition hover:opacity-80 md:bottom-8 md:right-4 md:p-2"
+          className="fixed bottom-6 right-6 z-50 border rounded-full bg-transparent p-3 shadow-lg transition hover:opacity-80 md:bottom-8 md:right-4 md:p-2 "
           aria-label="Scroll to top"
         >
           <ChevronUp className="h-5 w-5 text-white md:h-6 md:w-6" />
         </button>
-      )} */}
-    </section>
+      )}
+    </main>
   );
 }
